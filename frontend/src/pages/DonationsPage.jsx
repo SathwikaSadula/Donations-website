@@ -45,11 +45,12 @@ const DonationsPage = () => {
           <select name="itemType" id="itemType" value={form.itemType || ''} onChange={handleChange}>
             <option value="">Select Item</option>
             <option value="laptops">Laptops</option>
-            <option value="monitors">monitors</option>
-            <option value="tablets">tablets</option>
-            <option value="chairs">chairs</option>
-            <option value="desks">desks</option>
-            <option value="projectors">projectors</option>
+            <option value="monitors">Monitors</option>
+            <option value="tablets">Tablets</option>
+            <option value="printers">Printers</option>
+            <option value="scanners">Scanners</option>
+            <option value="storage_devices">Storage Devices</option>
+            <option value="projectors">Projectors</option>
           </select>
         </div>
         <div className="input-field">

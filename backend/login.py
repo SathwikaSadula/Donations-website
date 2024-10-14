@@ -36,11 +36,11 @@ def validate_login():
 
             if user:
                 user_id = user['ULN_UserType']
-                cursor.execute("SELECT PTY_ID, PTY_ImageName FROM OPT_Party WHERE PTY_PartyType = %s", (user_id,))
+                cursor.execute("SELECT PTY_ID, PTY_Name FROM OPT_Party WHERE PTY_PartyType = %s", (user_id,))
                 party_row = cursor.fetchone()
                 if party_row:
                     party_id = int(party_row['PTY_ID'])
-                    party_name = party_row['PTY_ImageName']
+                    party_name = party_row['PTY_Name']
                 else:
                     return jsonify({'error': f'Party not found.'}), 404
                 

@@ -1,5 +1,3 @@
-/* LoginForm.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -78,8 +76,6 @@ body {
 
 
 
-
-/* SignUp Form Styles */
 .signup {
     max-width: 600px;
     margin: 50px auto;
@@ -94,7 +90,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Flexbox for the whole form */
 .signup .form {
     display: flex;
     flex-direction: column;
@@ -102,19 +97,19 @@ body {
 
 .signup .input-field {
     display: flex;
-    align-items: center; /* Align items horizontally in the center */
+    align-items: center; 
     margin-bottom: 15px;
 }
 
 .signup .input-field label {
-    flex: 0 0 150px; /* Fixed width for the label */
-    margin-right: 10px; /* Space between label and input */
+    flex: 0 0 150px; 
+    margin-right: 10px; 
     color: #555;
 }
 
 .signup .input-field input,
 .signup .input-field select {
-    flex: 1; /* Input will take up the remaining space */
+    flex: 1;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
