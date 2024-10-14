@@ -1,0 +1,391 @@
+/* LoginForm.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.login_css h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login_css .form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login_css .input-field {
+    margin-bottom: 15px;
+}
+
+.login_css .input-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.login_css .input-field input {
+    width: 90%;
+    padding: 10px;
+    background-color: rgb(206, 201, 192);
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.login_css .input-field input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.login_css .extras {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.login_css .extras a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login_css .extras a:hover {
+    text-decoration: underline;
+}
+
+.login_css input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 13px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login_css input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+
+
+
+
+/* SignUp Form Styles */
+.signup {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.signup h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Flexbox for the whole form */
+.signup .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup .input-field {
+    display: flex;
+    align-items: center; /* Align items horizontally in the center */
+    margin-bottom: 15px;
+}
+
+.signup .input-field label {
+    flex: 0 0 150px; /* Fixed width for the label */
+    margin-right: 10px; /* Space between label and input */
+    color: #555;
+}
+
+.signup .input-field input,
+.signup .input-field select {
+    flex: 1; /* Input will take up the remaining space */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.signup .input-field input:focus,
+.signup .input-field select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.signup input[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup input[type="button"]:hover {
+    background: #004494;
+}
+
+
+
+.DonationsPage {
+    text-align: center;
+    margin: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.DonationsPage form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.DonationsPage .input-field {
+    margin-bottom: 15px;
+}
+
+.DonationsPage label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.DonationsPage select,
+.DonationsPage input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.DonationsPage select:focus,
+.DonationsPage input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.DonationsPage button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.DonationsPage button:hover {
+    background-color: #218838;
+}
+
+
+
+.companyHome {
+    text-align: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.companyHome h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.companyHome h2 {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.companyHome table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.companyHome th,
+.companyHome td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.companyHome th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.companyHome tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.companyHome tr:hover {
+    background-color: #e9ecef;
+}
+
+.companyHome a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.companyHome a:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.RequestPage {
+    text-align: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.RequestPage form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.RequestPage .input-field {
+    margin-bottom: 15px;
+}
+
+.RequestPage label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.RequestPage select,
+.RequestPage input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.RequestPage select:focus,
+.RequestPage input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.RequestPage button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.RequestPage button:hover {
+    background-color: #218838;
+}
+
+
+
+.SchoolHome {
+    text-align: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.SchoolHome h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.SchoolHome h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.SchoolHome table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.SchoolHome th, .SchoolHome td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.SchoolHome th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.SchoolHome tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.SchoolHome tr:hover {
+    background-color: #e0e0e0;
+}
+
+.SchoolHome a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.SchoolHome a:hover {
+    background-color: #218838;
+}
