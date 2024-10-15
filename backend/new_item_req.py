@@ -27,7 +27,7 @@ def new_item_request():
         return jsonify({'error': 'User ID, item type, and quantity are required.'}), 400
 
     try:
-        quantity = int(quantity)  # Convert quantity to integer
+        quantity = int(quantity)
 
         connection = mysql.connector.connect(**db_config)
         if connection.is_connected():
@@ -41,7 +41,7 @@ def new_item_request():
             else:
                 return jsonify({'error': 'Item not found.'}), 404
 
-            # Insert a new item request
+            # Inserting a new item request
             cursor.execute("""
                 INSERT INTO OPT_ItemsRequest (ITR_Party, ITR_Quantity, ITR_RequestDate, ITR_PendingQuantity, ITR_RequestStatus, ITR_ItemType)
                 VALUES (%s, %s, %s, %s, %s, %s)
@@ -86,7 +86,13 @@ def new_item_request():
 
             # Update the item request status
             new_pending_quantity = quantity - total_donated
-            new_status = "Completed" if new_pending_quantity == 0 else "Processed"
+            if new_pending_quantity == 0:
+                new_status = "Completed"
+            elif total_donated == 0:
+                new_status = "Pending"
+            else:
+                new_status = "Processed"
+
             cursor.execute("""
                 UPDATE OPT_ItemsRequest 
                 SET ITR_PendingQuantity = %s, ITR_RequestStatus = %s 

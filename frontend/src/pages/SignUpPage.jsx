@@ -86,8 +86,8 @@ const SignUpPage = () => {
             <label htmlFor="partyType">Type:</label>
 						<select name="partyType" id="partyType" value={form.partyType || ''} onChange={handleChange}>
 							<option value="">Select Type</option>
-							<option value="company">Company</option>
-							<option value="school">School</option>
+							<option value="Company">Company</option>
+							<option value="School">School</option>
 						</select>
           </div>
 					<div className="input-field">

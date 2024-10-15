@@ -45,7 +45,7 @@ def create_new_donation():
             connection.commit()
             
             requests.post('http://localhost:3000/fulfillDonations', json={'partyId': party_id})
-            return jsonify({'message': 'Donation created successfully! and fulfillment process completed'}), 201
+            return jsonify({'message': 'Donation created successfully!'}), 201
 
     except Error as e:
         print(e)
@@ -65,25 +65,52 @@ def get_donations_by_party(party_id):
         if connection.is_connected():
             cursor = connection.cursor(dictionary=True)  # Use dictionary cursor for easier access
 
+            # Fetch data from OPT_FilledDonations
             cursor.execute("""
                 SELECT 
                     it.ITP_Name AS Item_Name,
-                    fd.FDS_Quantity AS Quantity_Donated
+                    SUM(fd.FDS_Quantity) AS Quantity_Donated
                 FROM 
                     OPT_FilledDonations fd
                 JOIN 
                     SYS_ItemType it ON fd.FDS_ItemType = it.ITP_ID
                 WHERE 
                     fd.FDS_FromParty = %s
+                GROUP BY 
+                    it.ITP_Name
             """, (party_id,))
+            filled_donations = cursor.fetchall()
 
-            donations = cursor.fetchall()
+            # Fetch data from OPT_ItemDonations
+            cursor.execute("""
+                SELECT 
+                    it.ITP_Name AS Item_Name,
+                    SUM(id.ITD_Quantity) AS Quantity_Donated
+                FROM 
+                    OPT_ItemDonations id
+                JOIN 
+                    SYS_ItemType it ON id.ITD_ItemType = it.ITP_ID
+                WHERE 
+                    id.ITD_Party = %s
+                GROUP BY 
+                    it.ITP_Name
+            """, (party_id,))
+            
+            item_donations = cursor.fetchall()
 
-            # Format response to include only necessary details
-            formatted_donations = [{
-                'Item_Name': donation['Item_Name'],
-                'Quantity_Donated': donation['Quantity_Donated']
-            } for donation in donations]
+            filled_dict = {donation['Item_Name']: donation['Quantity_Donated'] for donation in filled_donations}
+            item_dict = {donation['Item_Name']: donation['Quantity_Donated'] for donation in item_donations}
+
+            # Combining results
+            combined_donations = {}
+            for item_name, quantity in filled_dict.items():
+                combined_donations[item_name] = quantity + item_dict.get(item_name, 0)
+
+            for item_name, quantity in item_dict.items():
+                if item_name not in combined_donations:
+                    combined_donations[item_name] = quantity
+
+            formatted_donations = [{'Item_Name': item, 'Quantity_Donated': qty} for item, qty in combined_donations.items()]
 
             return jsonify(formatted_donations), 200
 

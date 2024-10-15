@@ -19,7 +19,7 @@ def get_pending_requests(party_id):
     try:
         connection = mysql.connector.connect(**db_config)
         if connection.is_connected():
-            cursor = connection.cursor(dictionary=True)  # Use dictionary cursor for easier access
+            cursor = connection.cursor(dictionary=True)  
 
             cursor.execute("""
                     SELECT 
@@ -59,13 +59,13 @@ def get_pending_requests(party_id):
             connection.close()
 
 
-# Get Processed & Completed Requests Endpoint
+# Get Completed Requests Endpoint
 @requests_bp.route('/getProcessedRequests/<int:party_id>', methods=['GET'])
 def get_processed_requests(party_id):
     try:
         connection = mysql.connector.connect(**db_config)
         if connection.is_connected():
-            cursor = connection.cursor(dictionary=True)  # Use dictionary cursor for easier access
+            cursor = connection.cursor(dictionary=True)  
 
             cursor.execute("""
                 SELECT 

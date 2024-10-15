@@ -17,7 +17,7 @@ const SchoolHome = () => {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
 			const data = await response.json();
-      // console.log(data);
+      
 			setPending(data);
 		}
 
@@ -28,7 +28,7 @@ const SchoolHome = () => {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
 			const data = await response.json();
-      // console.log(data);
+      
 			setProcessed(data);
 		}
 
@@ -53,12 +53,12 @@ const SchoolHome = () => {
           </thead>
         <tbody>
           {
-            // sample doantions = [[abc,abc,abc,abc],[xyz,xyz,xyz,xyz]]
+            
             pending.map((item, index) => (
               <tr key={index}>
                 <td>{item.Item_Name}</td>
-                <td>{item.Pending_Quantity}</td>
                 <td>{item.Requested_Quantity}</td>
+                <td>{item.Pending_Quantity}</td>
                 <td>{item.Status}</td>
               </tr>
             ))
@@ -77,11 +77,11 @@ const SchoolHome = () => {
         </thead>
         <tbody>
           {
-            // sample doantions = [[abc,abc,abc],[xyz,xyz,xyz]]
+            
             processed.map((item, index) => (
               <tr key={index}>
-                <td>{item.Company_Name}</td>
                 <td>{item.Item_Name}</td>
+                <td>{item.Company_Name}</td>
                 <td>{item.Quantity}</td>
               </tr>
             ))

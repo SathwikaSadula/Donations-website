@@ -40,12 +40,12 @@ def create_party():
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor()
 
-        # Check if the party already exists
+        # Checking if the party already exists
         cursor.execute("SELECT * FROM OPT_Party WHERE PTY_ContactEmail = %s OR PTY_Name = %s", (email, party_name))
         existing_party = cursor.fetchone()
 
         if existing_party:
-            return jsonify({'error': f'Party with this contact email or {party_name} already exists!'}), 409  # Conflict
+            return jsonify({'error': f'Party with this contact email or {party_name} already exists!'}), 409  
 
         # Step 1: Insert into OPT_Address
         cursor.execute("""
@@ -82,7 +82,7 @@ def create_party():
 
     except Error as e:
         if connection:
-            connection.rollback()
+            connection.rollback()  # Rollback the transaction in case of error
         return jsonify({'error': str(e)}), 500
     finally:
         if cursor:
