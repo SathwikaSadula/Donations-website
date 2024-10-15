@@ -31,7 +31,7 @@ def create_party():
     contact_phone = party_data.get('phone')
     party_type = party_data.get('partyType')
     party_name = party_data.get('imageName')
-    #through imageName, name of the school/company is taken
+    #through imageName, name of the school/company is taken for now
 
     connection = None
     cursor = None
@@ -69,7 +69,7 @@ def create_party():
         cursor.execute("""
             INSERT INTO OPT_Party (PTY_PartyType, PTY_Name, PTY_AddressID, PTY_ContactName, PTY_ContactPhone, PTY_IsValid, PTY_ImageName, PTY_ContactEmail) 
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """, (user_type_id, party_name, address_id, contact_name, contact_phone, True, "abcXyz", email))
+        """, (user_type_id, party_name, address_id, contact_name, contact_phone, True, party_name, email))
 
         # Step 6: Insert into OPT_UserLogin
         cursor.execute("""
